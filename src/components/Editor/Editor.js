@@ -118,6 +118,7 @@ export default class Editor extends Component {
   toggleLogs = () => {
     const newHeight = this.state.logsHeight === 0 ? LOGS_DEFAULT_HEIGHT : 0
     this.setState({ logsHeight: newHeight })
+    this.refs.reactAceComponent.editor.resize()
   }
 
   mouseDown: boolean
@@ -162,6 +163,7 @@ export default class Editor extends Component {
               value={this.state.content}
               name='ACE_EDITOR_01'
               commands={this.hotkeysMap}
+              ref='reactAceComponent'
               enableBasicAutocompletion
             />
           )}
